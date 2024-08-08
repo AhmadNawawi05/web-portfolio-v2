@@ -5,6 +5,9 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import { ReactTyped } from 'react-typed';
 import { FaLinkedin, FaGithub, FaInstagram, FaEnvelope } from 'react-icons/fa';
 
+import animationData from "../assets/Animation - 1723092453847.json";
+
+
 const Hero = () => {
   return (
     <section className='relative w-full h-screen mx-auto'>
@@ -54,7 +57,7 @@ const Hero = () => {
           <Player
             autoplay
             loop
-            src="/src/assets/Animation - 1723092453847.json"
+            src={animationData}
             style={{ height: '500px', width: '500px' }}
           />
         </div>
