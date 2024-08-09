@@ -123,27 +123,27 @@ const experiences = [
     description: "",
     icon: areon,
     iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    date: "September 2023 - October 2023",
     points: [
       "Involved in the development and optimization of a sophisticated tracker feature designed to significantly enhance the mapping functionality and overall user experience on the Mangrovein platform.",
     ],
   },
   {
     title: "Contribution to Interactive Map Development for Bandung Regency",
-    company_name: "Tesla",
+    company_name: "",
     icon: areon,
     iconBg: "#E6DEDD",
-    date: "Jan 2021 - Feb 2022",
+    date: "October 2023 - November 2023",
     points: [
       "Contributed to the creation of an interactive map for the Bandung Regency to monitor MSME data, enabling detailed analysis of business conditions within the Bandung Regency area, and providing valuable insights for local economic development.",
     ],
   },
   {
     title: "Research on IoT Application for pH Level Detection in Fish Ponds",
-    company_name: "Shopify",
+    company_name: "",
     icon: areon,
     iconBg: "#383E56",
-    date: "Jan 2022 - Jan 2023",
+    date: "November 2023 - December 2023",
     points: [
       "Actively participated in research on the application of Internet of Things (IoT) technology for detecting pH levels in fish ponds, contributing to the advancement of smart aquaculture practices and improving water quality management.",
     ],

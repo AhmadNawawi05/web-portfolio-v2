@@ -6,6 +6,7 @@ import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import { Player } from "@lottiefiles/react-lottie-player";
+import Swal from "sweetalert2";
 
 import animationData from "../assets/Animation - 1723135420528.json";
 
@@ -20,9 +21,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
-
+    const { name, value } = e.target;
     setForm({
       ...form,
       [name]: value,
@@ -33,43 +32,80 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+    // Kirim email dari pengguna
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID, // ID layanan Anda
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID, // ID template untuk pesan dari pengguna
         {
           from_name: form.name,
-          to_name: "JavaScript Mastery",
+          to_name: "Ahmad Nawawi",
           from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
+          to_email: "ahmadnawawiumar@gmail.com",
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY // Kunci publik Anda
       )
       .then(
         () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
+          // Kirim auto-reply ke pengguna
+          emailjs
+            .send(
+              import.meta.env.VITE_APP_EMAILJS_SERVICE_ID, // ID layanan Anda
+              import.meta.env.VITE_APP_EMAILJS_AUTO_REPLY_TEMPLATE_ID, // ID template untuk auto-reply
+              {
+                from_name: "Ahmad Nawawi",
+                to_name: form.name,
+                to_email: form.email,
+                message: "Thank you for reaching out! We have received your message and will get back to you shortly.",
+              },
+              import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY // Kunci publik Anda
+            )
+            .then(
+              () => {
+                setLoading(false);
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Thank you. I will get back to you as soon as possible.",
+                  showConfirmButton: false,
+                  timer: 2500
+                });
+                setForm({
+                  name: "",
+                  email: "",
+                  message: "",
+                });
+              },
+              (error) => {
+                setLoading(false);
+                console.error(error);
+                Swal.fire({
+                  position: "top-end",
+                  icon: "error",
+                  title: "Ahh, something went wrong. Please try again.",
+                  showConfirmButton: false,
+                  timer: 2500
+                }); 
+              }
+            );
         },
         (error) => {
           setLoading(false);
           console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Ahh, something went wrong. Please try again.",
+            showConfirmButton: false,
+            timer: 2500
+          }); 
         }
       );
   };
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-    >
+    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
       {/* Form Section */}
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}

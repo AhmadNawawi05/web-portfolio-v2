@@ -26,7 +26,7 @@ const Hero = () => {
           </p>
 
           {/* Social Media Icons */}
-          <div className="flex mt-5 space-x-4">
+          {/* <div className="flex mt-5 space-x-4">
             <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
               <FaLinkedin className="text-white-100 text-2xl hover:text-[#071952]" />
             </a>
@@ -39,16 +39,16 @@ const Hero = () => {
             <a href="mailto:your-email@example.com">
               <FaEnvelope className="text-white-100 text-2xl hover:text-[#071952]" />
             </a>
-          </div>
+          </div> */}
 
           {/* Download CV Button */}
           <div className="mt-5">
             <a
-              href="/path-to-your-cv.pdf"
+              href="/CV Ahmad Nawawi.pdf"
               download
               className="bg-[#071952] text-white-100 py-2 px-6 rounded-md text-lg sm:text-xl hover:bg-[#e01c40]"
             >
-              Download CV
+              See My Resume
             </a>
           </div>
         </div>
