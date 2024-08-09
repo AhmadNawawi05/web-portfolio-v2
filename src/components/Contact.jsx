@@ -65,7 +65,7 @@ const Contact = () => {
               () => {
                 setLoading(false);
                 Swal.fire({
-                  position: "top-end",
+                  position: "center",
                   icon: "success",
                   title: "Thank you. I will get back to you as soon as possible.",
                   showConfirmButton: false,
@@ -81,7 +81,7 @@ const Contact = () => {
                 setLoading(false);
                 console.error(error);
                 Swal.fire({
-                  position: "top-end",
+                  position: "center",
                   icon: "error",
                   title: "Ahh, something went wrong. Please try again.",
                   showConfirmButton: false,
@@ -94,7 +94,7 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
           Swal.fire({
-            position: "top-end",
+            position: "center",
             icon: "error",
             title: "Ahh, something went wrong. Please try again.",
             showConfirmButton: false,
